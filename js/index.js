@@ -1,11 +1,16 @@
 function list(productsCart) {
-    let ulLista = document.querySelector(".products-list")
+    let mainLista = document.querySelector(".the-list")
     for (i = 0; i < productsCart.length; i++){
         let item = productsCart[i]
+
+        let ulProduct = document.createElement("ul")
+        ulProduct.classList.add("products-list")
+
         
         let liProduct = document.createElement("li")
         liProduct.classList.add("list-item-products")
-        //colocar id
+        ulProduct.appendChild(liProduct)
+        liProduct.id = "product-list"
 
         let imgProduct = document.createElement("img")
         imgProduct.src = item.image
@@ -22,7 +27,7 @@ function list(productsCart) {
         pProduct.innerText = item.price
         liProduct.appendChild(pProduct)
 
-        ulLista.appendChild(liProduct)
+        mainLista.appendChild(ulProduct)
 
     }
 }
